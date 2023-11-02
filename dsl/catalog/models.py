@@ -26,7 +26,6 @@ class Product(models.Model):
     slug = models.SlugField(max_length=50, unique=True, default=title)
     description = models.TextField(default='')
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    count = models.IntegerField()
 
     class Meta:
         verbose_name = 'Товар'
