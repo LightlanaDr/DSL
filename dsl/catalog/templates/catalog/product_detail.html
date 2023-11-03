@@ -168,7 +168,6 @@
     <div class="container">
         <div class="col-sm-3">
             <div class="vertical-menu">
-<!--                <h3>Категории</h3>-->
                 {% for category in categories %}
                     <a href="{% url 'cat_slug_products' category_slug=category.id %}"> {{category.name_cat}}</a>
                 {% endfor %}
@@ -186,16 +185,6 @@
                         <div class="cart__bottom">
                             <h5 class="product_name">{{product.title}}</h5>
                             <p class="product_price">{{product.price}} руб. </p>
-<!--                            <button class="cart__add">В корзину</button>-->
-<!--                            <button type="button" style="border-radius: 3px;-->
-<!--                            background-color: #fff; margin: 0 auto;-->
-<!--                            display: block; margin-top: auto;" >-->
-<!--                                В корзину</button>-->
-<!--                            <p><form action="{% url 'cart_add' product_id=product.id%}" method="post">-->
-<!--                                {{ form }}-->
-<!--                                {% csrf_token %}-->
-<!--                                <input type="submit" value="В корзину">-->
-<!--                            </form>-->
                             <form action="{% url 'cart_add' product_id=product.id%}" method="post">
                                 {% csrf_token %}
                                     {{ form }}

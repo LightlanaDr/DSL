@@ -20,10 +20,12 @@ class NewOrder(models.Model):
     status = models.CharField(choices=ORDER_STATUS, max_length=100, default='Неоплачен')
     total_sum = models.DecimalField(max_digits=8, decimal_places=2, default=0)
 
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'
+
     def __str__(self):
-        return f'Заказ: {self.first_name}{self.last_name}' \
-               f'Дата: {self.data_created}, статус:{self.status}' \
-               f'Сумма: {self.total_sum}'
+        return f'Заказ: {self.id}'
 
 
 class OrderProduct(models.Model):
@@ -31,3 +33,7 @@ class OrderProduct(models.Model):
     order_product = models.ForeignKey(Product, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=8, decimal_places=2, default=0)
     quantity = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Продукты в заказе'
