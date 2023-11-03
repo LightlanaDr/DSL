@@ -7,8 +7,9 @@ from cart.forms import CartAddProductForm
 
 def category_products(request):
     """ Представление для списка категорий и продуктов"""
-    category_slug = None
-    categories = Category.objects.all()
+    # category_slug = None
+    status = 'Опубликовано'
+    categories = Category.objects.filter(status=status).all()
     category = None
     products = Product.objects.all()
     form = CartAddProductForm()
@@ -19,7 +20,8 @@ def category_products(request):
 
 def cat_slug_products(request, category_slug=None):
     """ Представление для списка категорий и продуктов по категориям"""
-    categories = Category.objects.all()
+    status = 'Опубликовано'
+    categories = Category.objects.filter(status=status).all()
     category = None
     products = None
     form = CartAddProductForm()
@@ -38,13 +40,6 @@ def product_detail(request, id):
     form = CartAddProductForm()
     return render(request, 'catalog/test.html', {"product": product,
                                                            "form": form})
-
-# def product_detail(request, id):
-#     product = get_object_or_404(Product, id=id)
-#     cart_product_form = CartAddProductForm()
-#     context = {'product': product, 'cart_product_form': cart_product_form}
-#     return render(request, 'catalog/test.html', context)
-
 
 
 

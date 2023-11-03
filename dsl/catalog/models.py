@@ -4,12 +4,13 @@ from django.urls import reverse
 
 
 class Category(models.Model):
-    # CHOICES_STATUS = (
-    #     ('Опубликовано', 'Опубликовано'),
-    #     ('Скрыто', 'Скрыто'),
-    # )
+    CHOICES_STATUS = (
+        ('Опубликовано', 'Опубликовано'),
+        ('Скрыто', 'Скрыто'),
+    )
+
     name_cat = models.CharField(max_length=100)
-    # status = models.CharField(choices=CHOICES_STATUS, max_length=100)
+    status = models.CharField(choices=CHOICES_STATUS, max_length=100, default='Опубликовано')
 
     def __str__(self):
         return f'{self.name_cat}'
@@ -44,4 +45,3 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.pk, self.slug])
-
