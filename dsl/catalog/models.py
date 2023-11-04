@@ -9,7 +9,7 @@ class Category(models.Model):
         ('Скрыто', 'Скрыто'),
     )
 
-    name_cat = models.CharField(max_length=100)
+    name_cat = models.CharField(verbose_name='Категория', max_length=100)
     status = models.CharField(choices=CHOICES_STATUS, max_length=100, default='Опубликовано')
 
     def __str__(self):
@@ -21,12 +21,12 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    title = models.CharField(max_length=100)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='products/')
-    slug = models.SlugField(max_length=50, unique=True, default=title)
-    description = models.TextField(default='')
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    title = models.CharField(verbose_name='Название', max_length=100)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
+    image = models.ImageField(verbose_name='Фото', upload_to='products/')
+    slug = models.SlugField(max_length=50, unique=True, default=title, verbose_name='URL')
+    description = models.TextField(verbose_name='Описание', default='')
+    price = models.DecimalField(verbose_name='Стоимость',max_digits=10, decimal_places=2)
 
     class Meta:
         verbose_name = 'Товар'
