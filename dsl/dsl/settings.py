@@ -19,22 +19,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-!utbc(ew#(zte^_6d6kwpb=9x))=o1t2+)6e26okg*2j1zn+b4'
-import os
-
-...
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-!utbc(ew#(zte^_6d6kwpb=9x))=o1t2+)6e26okg*2j1zn+b4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-STATIC_ROOT = BASE_DIR / 'static/'
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    'lightlana.pythonanywhere.com',
-]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -87,15 +77,7 @@ WSGI_APPLICATION = 'dsl.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'lightlana$default',
-        'USER': 'lightlana',
-        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
-        'HOST': 'lightlana.mysql.pythonanywhere-services.com',
-        'OPTIONS': {'init_command': "SET NAMES 'utf8mb4';"
-                                    "SET sql_mode = 'STRICT_TRANS_TABLES'",
-                    'charset': 'utf8mb4',
-                    },
-
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -131,7 +113,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/ static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -147,3 +129,4 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CART_SESSION_ID = 'cart'
+

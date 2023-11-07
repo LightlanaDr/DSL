@@ -12,7 +12,7 @@
 <h3>Заполните форму, чтобы оформить заказ</h3>
 <form action="" method="post">
     {% csrf_token %}
-    {{ form.as_div }}
+    {{ form }}
     <input type="submit" value="Оформить заказ">
 </form>
     </div>
