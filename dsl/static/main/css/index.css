@@ -86,9 +86,10 @@
 }
 
 .text_f{
-    text-align: left;
     font-size: 15px;
     color:#fa8e47;
+    top: 50%;
+
 }
 
 

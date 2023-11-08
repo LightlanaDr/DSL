@@ -29,7 +29,9 @@
 
     @media only screen
     and (min-device-width : 320px)
-    and (max-device-width : 480px){ .vertical-menu { display: none; }}
+    and (max-device-width : 480px){ .vertical-menu { display: none; }
+    .col-sm-9 {width: 100%; margin: auto; }
+}
 
     .vertical-menu a {
         background-color:  #ffffff;
@@ -163,6 +165,8 @@
      margin-right: auto;
      padding-left: 14 px;
     }
+
+
 </style>
 <section>
     <div class="container">
@@ -173,7 +177,7 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-sm-9 padding-right">
+        <div class="col-sm-9 ">
             <div class="cards">
                     {% for product in products %}
                     <div class="card">
