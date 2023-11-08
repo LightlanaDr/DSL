@@ -21,7 +21,7 @@ class OrderCreate(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'class': 'input_text long_input',
                                                 'placeholder': 'Фамилия'}),
 
-            'email': forms.EmailInput(attrs={'placeholder': 'Фамилия'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Эл. адрес'}),
             'phone': forms.TextInput(attrs={'class': 'input_text long_input',
                                             'placeholder': '+7...'}),
             'address': forms.TextInput(attrs={'class': 'input_text long_input',
