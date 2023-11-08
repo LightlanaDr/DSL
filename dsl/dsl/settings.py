@@ -19,12 +19,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!utbc(ew#(zte^_6d6kwpb=9x))=o1t2+)6e26okg*2j1zn+b4'
+# SECRET_KEY = 'django-insecure-!utbc(ew#(zte^_6d6kwpb=9x))=o1t2+)6e26okg*2j1zn+b4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1:8000',
+    'dslgb.pythonanywhere.com',
+]
 
 # Application definition
 
@@ -77,7 +81,15 @@ WSGI_APPLICATION = 'dsl.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'dslgb$default',
+        'USER': 'dslgb',
+        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+        'HOST': 'dslgb.mysql.pythonanywhere-services.com',
+        'OPTIONS': {
+            'init_command': "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
+
     }
 }
 
@@ -130,3 +142,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CART_SESSION_ID = 'cart'
 
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+STATIC_ROOT = BASE_DIR / 'static/'
