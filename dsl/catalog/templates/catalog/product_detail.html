@@ -102,6 +102,8 @@
       flex-direction: column;
       flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
       margin-bottom: 10px;
+      justify-content: center;
+      justify-items: center;
     }
 
     .card__title {
@@ -111,10 +113,12 @@
       font-size: 17px;
       line-height: 150%;
       color: #414141;
+      text-align: center;
     }
 
     .card__title:hover {
       color: #ff6633;
+      text-align: center;
     }
 
     .card__add {
@@ -158,14 +162,43 @@
       .product_name {
       margin-left: 14 px;
       padding-left: 14 px;
+      text-align: center;
     }
 
     .product_price {
      margin-left: auto;
      margin-right: auto;
      padding-left: 14 px;
+     text-align: center;
     }
 
+    .form_q{
+position: absolute;
+width: 100%;
+bottom: 0;
+
+    }
+.form {
+  display: grid;
+  width: 100%
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  justify-content: center;
+  justify-items: center;
+
+}
+<!--   .cartButton{-->
+<!--      display: grid;-->
+<!--      /* Автоматически заполняем на всю ширину grid-контейнера */-->
+<!--      grid-template-columns: repeat(auto-fill, 30%);-->
+<!--      width: 100%;-->
+<!--      justify-content: center;-->
+<!--      justify-items: center; /* Размещаем карточку по центру */-->
+<!--      column-gap: 20px; /* Отступ между колонками */-->
+<!--      row-gap: 10px; /* Отступ между рядами */-->
+<!--      margin: 0 auto;-->
+<!--   }-->
 
 </style>
 <section>
@@ -189,12 +222,14 @@
                         <div class="cart__bottom">
                             <h5 class="product_name">{{product.title}}</h5>
                             <p class="product_price">{{product.price}} руб. </p>
-                            <form action="{% url 'cart_add' product_id=product.id%}" method="post">
+                            <br>
+                            <div class="form_q">
+                                <form action="{% url 'cart_add' product_id=product.id%}" method="post">
                                 {% csrf_token %}
                                     {{ form }}
-                                    <input type="submit" value="В корзину">
+                                    <input type="submit" class="cartButton" value="В корзину">
                                 </form>
-                            </p>
+                            </div>
                         </div>
                     </div>
                     {% endfor %}

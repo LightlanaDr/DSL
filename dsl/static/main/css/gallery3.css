@@ -36,6 +36,15 @@ body {
     padding: 10px;
 }
 
+.grid-layout-index {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 25%;
+    grid-gap: 10px;
+    grid-auto-rows: minmax(250px, auto);
+    grid-auto-flow: dense;
+    padding: 10px;
+}
+
 .grid-item {
     border-radius: 6px;
 }

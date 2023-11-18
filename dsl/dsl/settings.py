@@ -124,7 +124,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_DIR = os.path.join(BASE_DIR, 'images')
 MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/media/'
+MEDIA_URL = '/images/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

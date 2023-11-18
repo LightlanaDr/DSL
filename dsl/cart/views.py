@@ -5,6 +5,7 @@ from catalog.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm, OrderCreate
 from .models import OrderProduct
+from django.contrib import messages
 
 
 @require_POST
@@ -17,7 +18,8 @@ def cart_add(request, product_id):
         cart.add(product=product,
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
-    return redirect('cart_detail')
+        # messages.info(request, 'Товар добавлен')
+    return redirect('category_products')
 
 
 def cart_remove(request, product_id):
