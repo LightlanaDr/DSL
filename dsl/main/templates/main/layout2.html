@@ -110,21 +110,15 @@
 
 <body>
 <div>
+
+
+
     <!--    <hr class="hr-line">-->
     {% block content %}
+
     {% endblock %}
 
 </div>
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-        {{ message }}
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
-
 
 
 		<!-- Start Footer Section -->
@@ -134,6 +128,7 @@
 					<div class="row pt-4">
 						<div class="col-lg-6">
                             <p class="mb-2 text-center text-lg-start">Светлана Дружкова &copy;<script>document.write(new Date().getFullYear());</script> </p>
+							<p class="mb-2 text-center text-lg-start">Тел: +7 977 510 52 81</p>
 						</div>
 
 						<div class="col-lg-6 text-center text-lg-end">

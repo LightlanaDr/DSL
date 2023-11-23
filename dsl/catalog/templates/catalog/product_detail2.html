@@ -82,6 +82,23 @@
 </style>
 
 <div class="untree_co-section product-section before-footer-section">
+
+
+    {% if messages %}
+            <div class="alert alert-success" role="alert" style="width: 200px;
+            text-align: center;
+            height: 60px; margin-left: auto; margin-right: auto;">
+            {% for message in messages %}
+            <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+
+                {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+            </p>
+            {% endfor %}
+            </div>
+    {% endif %}
+
+
     <div class="container">
         <div class="vertical-menu">
             {% for category in categories %}
@@ -91,6 +108,8 @@
         <br>
     </div>
     <div class="container">
+
+
         <div class="row">
             {% for product in products %}
             <div class="col-12 col-md-4 col-lg-3 mb-5">
