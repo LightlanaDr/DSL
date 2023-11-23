@@ -13,7 +13,7 @@ def category_products(request):
     category = None
     products = Product.objects.all()
     form = CartAddProductForm()
-    return render(request, 'catalog/product_detail.html', {'category': category, 'categories': categories,
+    return render(request, 'catalog/product_detail2.html', {'category': category, 'categories': categories,
                                                            'products': products,
                                                            "form": form})
 
@@ -30,7 +30,7 @@ def cat_slug_products(request, category_slug=None):
         products = Product.objects.filter(category=category)
     else:
         products = Product.objects.all()
-    return render(request, 'catalog/product_detail.html', {'category': category, 'categories': categories,
+    return render(request, 'catalog/product_detail2.html', {'category': category, 'categories': categories,
                                                      'products': products,
                                                      "form": form})
 

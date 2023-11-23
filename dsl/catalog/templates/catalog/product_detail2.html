@@ -1,0 +1,127 @@
+{% extends 'main/layout2.html' %}
+
+{% block title %}
+Каталог
+{% endblock %}
+
+
+{% block content %}
+<style>
+
+    @font-family:'Ubuntu Condensed', sans-serif;
+
+
+    .h4 {
+      padding: inherit;
+      margin: inherit;
+    }
+
+    .col-sm-3 {
+        width: 25%;
+    }
+
+    .col-sm-9 {
+        width: 75%;
+    }
+
+    .vertical-menu {
+    width: 200 px;
+    font-family: "Ubuntu Condensed", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+
+    @media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 480px){
+<!--    .vertical-menu a{-->
+<!--    width: 100px;-->
+<!--    display: block;-->
+<!--    background: #3d60b8;-->
+<!--    color: yellow;-->
+<!--    padding: 15px;-->
+<!--    text-decoration: none;-->
+     }
+    .col-sm-9 {width: 100%; margin: auto; }
+}
+
+    .vertical-menu a {
+        background-color:  #ffffff;
+        color: black;
+        display: inline;
+        padding: 14px;
+        text-decoration: none;
+
+    }
+
+    .vertical-menu a:hover {
+        background-color:  #fd7e14;
+        background-color:  #fd7e14;
+    }
+
+    .vertical-menu a.active {
+        background-color:  #fd7e14;
+        color: white;
+    }
+
+
+<!--    .form {-->
+<!--      width: 100%-->
+<!--      position: absolute;-->
+<!--      left: 50%;-->
+<!--      top: 50%;-->
+<!--      justify-content: center;-->
+<!--      justify-items: center;-->
+
+
+    }
+
+
+</style>
+
+<div class="untree_co-section product-section before-footer-section">
+    <div class="container">
+        <div class="vertical-menu">
+            {% for category in categories %}
+            <a href="{% url 'cat_slug_products' category_slug=category.id %}"> {{category.name_cat}}</a>
+            {% endfor %}
+        </div>
+        <br>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for product in products %}
+            <div class="col-12 col-md-4 col-lg-3 mb-5">
+                <a class="product-item" href="#">
+                    <img src="{{product.image.url}}" alt="{{image.name}}" tabindex="0"
+                         class="img-fluid product-thumbnail">
+                    <h3 class="product-title">{{product.title}}</h3>
+                    <strong class="product-price">{{product.price}} руб.</strong>
+                    <!--                            <span class="icon-cross">-->
+                    <!--								<img src="/images/icons/cross.svg" class="img-fluid" >-->
+                    <!--							</span>-->
+<!--                    <span class="icon-cross">-->
+<!--								<img src="/images/icons/cross.svg" class="img-fluid">-->
+<!--							</span>-->
+<!--                    <div class="form_count">-->
+                    <form action="{% url 'cart_add' product_id=product.id%}"
+                          method="post">
+                        {% csrf_token %}
+
+                        <div class="form_count"> {{ form }} </div>
+                        <button type="submit" class="icon-cross"><img src="/images/icons/cross.svg"
+                                                                      class="img-fluid"></button>
+                    </form>
+<!--                    </div>-->
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

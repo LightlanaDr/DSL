@@ -18,8 +18,21 @@ def cart_add(request, product_id):
         cart.add(product=product,
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
-        # messages.info(request, 'Товар добавлен')
+        messages.success(request, 'Товар добавлен')
     return redirect('category_products')
+
+@require_POST
+def cart_add_update(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    form = CartAddProductForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(product=product,
+                 quantity=cd['quantity'],
+                 update_quantity=cd['update'])
+        # messages.success(request, 'Товар добавлен')
+    return redirect('cart_detail')
 
 
 def cart_remove(request, product_id):
@@ -35,7 +48,7 @@ def cart_detail(request):
         item['update_quantity_form'] = CartAddProductForm(initial={
             'quantity': item['quantity'],
             'override': True})
-    return render(request, 'cart/detail.html', {'cart': cart})
+    return render(request, 'cart/detail2.html', {'cart': cart})
 
 
 def order_create(request):

@@ -1,4 +1,4 @@
-{% extends 'main/layout.html' %}
+{% extends 'main/layout2.html' %}
 
 {% block title %}
 Каталог
@@ -206,34 +206,36 @@ bottom: 0;
         <div class="col-sm-3">
             <div class="vertical-menu">
                 {% for category in categories %}
-                    <a href="{% url 'cat_slug_products' category_slug=category.id %}"> {{category.name_cat}}</a>
+                <a href="{% url 'cat_slug_products' category_slug=category.id %}"> {{category.name_cat}}</a>
                 {% endfor %}
             </div>
         </div>
         <div class="col-sm-9 ">
             <div class="cards">
-                    {% for product in products %}
-                    <div class="card">
-                        <div class="card__top">
-                            <a href="#" class="card__image">
-                            <img   src="{{product.image.url}}" alt="{{image.name}}" tabindex="0">
-                            </a>
-                        </div>
-                        <div class="cart__bottom">
-                            <h5 class="product_name">{{product.title}}</h5>
-                            <p class="product_price">{{product.price}} руб. </p>
-                            <br>
-                            <div class="form_q">
-                                <form action="{% url 'cart_add' product_id=product.id%}" method="post">
-                                {% csrf_token %}
-                                    {{ form }}
-                                    <input type="submit" class="cartButton" value="В корзину">
-                                </form>
-                            </div>
-                        </div>
+                {% for product in products %}
+                <div class="card">
+                    <div class="card__top">
+                        <a href="#" class="card__image">
+                            <img src="{{product.image.url}}" alt="{{image.name}}" tabindex="0">
+                        </a>
                     </div>
-                    {% endfor %}
+                    <div class="cart__bottom">
+                        <h5 class="product_name">{{product.title}}</h5>
+                        <p class="product_price">{{product.price}} руб. </p>
+                        <br>
+                        <div class="form_q">
+                            <form action="{% url 'cart_add' product_id=product.id%}" method="post">
+                                {% csrf_token %}
+                                {{ form }}
+                                <input type="submit" class="cartButton" value="В корзину">
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
+                {% endfor %}
+            </div>
+
         </div>
     </div>
 </section>

@@ -1,0 +1,359 @@
+{% extends 'main/layout2.html' %}
+
+{% block title %}
+DSL Wood
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+
+    .img_ind{
+    width:70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+<!--    .italic {-->
+<!--        font-style: oblique;-->
+<!--        font-family: 'Trattatello';-->
+<!--        text-align: center;-->
+<!--        font-weight: 800;-->
+<!--        font-size: xx-large;-->
+<!--    }-->
+
+<!--        .italich4 {-->
+<!--        font-style: oblique;-->
+<!--        font-family: 'Trattatello';-->
+<!--        text-align: center;-->
+<!--        font-weight: 600;-->
+<!--        font-size: x-large;-->
+<!--    }-->
+
+<!--        .italich5 {-->
+<!--        font-style: oblique;-->
+<!--        font-family: 'Trattatello';-->
+<!--        text-align: center;-->
+<!--        font-weight: 500;-->
+
+<!--    }-->
+
+<!--        .textIndex{-->
+<!--            width: 100%;-->
+<!--    }-->
+
+<!--    .glow-on-hover {-->
+<!--    width: 220px;-->
+<!--    height: 50px;-->
+<!--    border: none;-->
+<!--    outline: none;-->
+<!--    color: #fff;-->
+<!--    background: #111;-->
+<!--    cursor: pointer;-->
+<!--    position: relative;-->
+<!--    z-index: 0;-->
+<!--    border-radius: 10px;-->
+<!--}-->
+
+<!--.glow-on-hover:before {-->
+<!--    content: '';-->
+<!--    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);-->
+<!--    position: absolute;-->
+<!--    top: -2px;-->
+<!--    left:-2px;-->
+<!--    background-size: 400%;-->
+<!--    z-index: -1;-->
+<!--    filter: blur(5px);-->
+<!--    width: calc(100% + 4px);-->
+<!--    height: calc(100% + 4px);-->
+<!--    animation: glowing 20s linear infinite;-->
+<!--    opacity: 0;-->
+<!--    transition: opacity .3s ease-in-out;-->
+<!--    border-radius: 10px;-->
+<!--}-->
+
+<!--.glow-on-hover:active {-->
+<!--    color: #000-->
+<!--}-->
+
+<!--.glow-on-hover:active:after {-->
+<!--    background: transparent;-->
+<!--}-->
+
+<!--.glow-on-hover:hover:before {-->
+<!--    opacity: 1;-->
+<!--}-->
+
+<!--.glow-on-hover:after {-->
+<!--    z-index: -1;-->
+<!--    content: '';-->
+<!--    position: absolute;-->
+<!--    width: 100%;-->
+<!--    height: 100%;-->
+<!--    background: #111;-->
+<!--    left: 0;-->
+<!--    top: 0;-->
+<!--    border-radius: 10px;-->
+<!--}-->
+
+<!--@keyframes glowing {-->
+<!--    0% { background-position: 0 0; }-->
+<!--    50% { background-position: 400% 0; }-->
+<!--    100% { background-position: 0 0; }-->
+<!--}-->
+<!--    A {-->
+<!--    color: white; /* Цвет ссылок */-->
+<!--   }-->
+<!--       A:visited {-->
+<!--    color:#fa8e47; /* Цвет посещенных ссылок */-->
+<!--   }-->
+<!--   A:active {-->
+<!--    color: #ffff00; /* Цвет активных ссылок */-->
+<!--   }-->
+<!--   .col-1-2-index {-->
+<!--  width:50%;-->
+<!--}-->
+
+<!--.knopka{-->
+<!--&lt;!&ndash;    margin: 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;    justify-content: center;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    display: flex;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    align-items: center;&ndash;&gt;-->
+<!--&lt;!&ndash;    display: grid;&ndash;&gt;-->
+<!--&lt;!&ndash;    grid-template-columns: repeat(auto-fill,100%);&ndash;&gt;-->
+<!--      display: grid;-->
+<!--      /* Автоматически заполняем на всю ширину grid-контейнера */-->
+<!--      grid-template-columns: repeat(auto-fill, 30%);-->
+<!--      width: 100%;-->
+<!--      justify-content: center;-->
+<!--      justify-items: center; /* Размещаем карточку по центру */-->
+<!--      column-gap: 20px; /* Отступ между колонками */-->
+<!--      row-gap: 10px; /* Отступ между рядами */-->
+<!--      margin: 0 auto;-->
+
+<!--}-->
+
+
+
+<!--    .index_cat {-->
+<!--      display: grid;-->
+<!--      /* Автоматически заполняем на всю ширину grid-контейнера */-->
+<!--      grid-template-columns: repeat(auto-fill, 30%);-->
+<!--      width: 100%;-->
+<!--      justify-content: center;-->
+<!--      justify-items: center; /* Размещаем карточку по центру */-->
+<!--      column-gap: 20px; /* Отступ между колонками */-->
+<!--      row-gap: 10px; /* Отступ между рядами */-->
+<!--      margin: 0 auto;-->
+<!--    }-->
+
+
+
+<!--      .index_item {-->
+<!--      width: 225px;-->
+<!--      min-height: 250px;-->
+<!--      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);-->
+<!--      display: flex;-->
+<!--      flex-direction: column; /* Размещаем элементы в колонку */-->
+<!--      border-radius: 4px;-->
+<!--      transition: 0.2s;-->
+<!--      position: relative;-->
+<!--    }-->
+
+<!--      .index__top {-->
+<!--      flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */-->
+<!--      position: relative;-->
+<!--      overflow: hidden; /* Скрываем, что выходит за пределы */-->
+<!--    }-->
+
+<!--      .cat_name {-->
+<!--      text-align: center;-->
+<!--    }-->
+
+<!--        @media only screen-->
+<!--    and (min-device-width : 320px)-->
+<!--    and (max-device-width : 480px){-->
+<!--    .col-1-2 { display: none;   margin: 20px;}-->
+<!--    .col-1-2-index {width: 100%; margin: auto; }-->
+<!--    .knopka {margin: 5px; }-->
+<!--    .index_cat {-->
+<!--      grid-template-columns: repeat(auto-fill, 100%);-->
+<!--    }-->
+</style>
+		<!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Творческая мастерская<span clsas="d-block"></span></h1>
+								<p class="mb-4">Мы создаём уникальные и персонализированные подарки,
+                                    которые навсегда запомнятся вашим близким и друзьям.
+                                    Вы можете выбрать готовое изделение из нашего каталога
+                                    или заказать собственный дизайн для гравировки.</p>
+								<p><a href="/catalog/" class="btn btn-secondary me-2">Каталог</a>
+                                    <a href="{% url 'order_create' %}" class="btn btn-white-outline">Оформить заказ</a></p>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								<img src="/images/index/xmas-surprise.png"  class="img_ind">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
+<!-- Start Why Choose Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-6">
+						<h2 class="section-title">Больше, чем просто подарок</h2>
+						<p>Мы гарантируем высокое качество и внимание к деталям.
+                            Мы поможем вам создать эксклюзивный подарок, который будет радовать
+                            ваших близких на протяжении многих лет. </p>
+                        <p> Свяжитесь с нами сегодня, закажите собственный
+                            дизайн или выберите готовое изделие!</p>
+
+						<div class="row my-5">
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="/images/index/22609.png" alt="Image" class="imf-fluid" width="30px">
+									</div>
+									<h3>Натуральные материалы</h3>
+									<p>В наших изделиях мы используем только натуральные материалы: дерево, кожу.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="/images/index/unic.png" alt="Image" class="imf-fluid"  width="30px">
+									</div>
+									<h3>Экслюзивный дизайн</h3>
+									<p>Подарите любимому ежедневник, отражающий его увлечения.
+                                        На долгие года сохраните воспоминания, с нашими крафтовыми фотоальбомами.
+                                   </p>
+								</div>
+							</div>
+<!--                            <div class="col-6 col-md-6">-->
+<!--								<div class="feature">-->
+<!--									<div class="icon">-->
+<!--										<img src="/images/index/вечность.png" alt="Image" class="imf-fluid"  width="30px">-->
+<!--									</div>-->
+<!--									<h3>Долговечность и качество</h3>-->
+<!--									<p>Дерево и кожа прослужат много лет,-->
+<!--                                        а удобный кольцевой механизм позволит легко менять блоки или добавлять новые страницы.-->
+<!--                                    </p>-->
+<!--								</div>-->
+<!--							</div>-->
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div class="img-wrap">
+							<img src="/images/index/учитель.jfif" alt="Image" class="img-fluid">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+<!-- Start We Help Section -->
+		<div class="we-help-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-7 mb-5 mb-lg-0">
+						<div class="imgs-grid">
+							<div class="grid grid-1"><img src="/images/products/1_JAfRO3x.jpg" alt="Untree.co"></div>
+							<div class="grid grid-2"><img src="/images/index/альбом.jpg" alt="Untree.co"></div>
+							<div class="grid grid-3"><img src="/images/index/инженер.jpg" alt="Untree.co"></div>
+						</div>
+					</div>
+					<div class="col-lg-5 ps-lg-5">
+						<h2 class="section-title mb-4">Мы делаем подарки, которые прослужат вам и вашим любимым долгие годы</h2>
+						<p>Удобные, красивые, индивидуальные.</p>
+
+						<ul class="list-unstyled custom-list my-4">
+							<li>Вечные деревянные обложки</li>
+							<li>Теплые кожанные переплеты</li>
+							<li>Удобные кольцевые механизмы</li>
+							<li>Красивые подарочныен короба</li>
+							<li>Безопасные краски и лаки</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End We Help Section -->
+
+		<!-- End Why Choose Us Section -->
+<!--<div class="textIndex">-->
+<!--    <h2 class='italic'>~ DSL Wood ~</h2>-->
+<!--    <h4 class='italich4'> Именные подарки с лазерной гравировкой</h4>-->
+<!--    <br>-->
+<!--    <div class="index_cat">-->
+<!--        <div class="index_item">-->
+<!--            <div class="index__top">-->
+<!--                <a href="catalog/1/" class="card__image">-->
+<!--                    <img src="/images/index/учитель.jfif" alt="Ежедневники" tabindex="0">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <div class="index_text">-->
+<!--                <a href="catalog/1/"><h5 class="cat_name">Ежедневники</h5></a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="index_item">-->
+<!--            <div class="index__top">-->
+<!--                <a href="catalog/2/" class="card__image">-->
+<!--                    <img src="/images/images/IMG_3519.jpg" alt="Аксессуары" tabindex="0">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <div class="index_text">-->
+<!--                <a href="#"><h5 class="cat_name">Аксессуары</h5></a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="index_item">-->
+<!--            <div class="index__top">-->
+<!--                <a href="#" class="card__image">-->
+<!--                    <img src="/images/index/fb9d82bb-245d-411c-a461-c1979bddeefc.jpeg.jfif" alt="Альбомы"-->
+<!--                         tabindex="0">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <div class="index_text">-->
+<!--                <a href="#"><h5 class="cat_name">Альбомы</h5></a>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </div>-->
+
+
+<!--    <h5 class='italich5'> Принимаем к изготовлению заказы от одного экземляра.-->
+<!--        Разработаем и согласуем дизайн проект за один рабочий день</h5>-->
+<!--    <h5 class='italich5'> При заказе продукции из наличия - отправка в день заказа </h5>-->
+
+<!--    <br>-->
+
+<!--    <div class="knopka">-->
+<!--        <button class="glow-on-hover" type="button">-->
+<!--            <a href="https://www.ozon.ru/seller/dsl-wood-929451/products/?miniapp=seller_929451">-->
+<!--                ОТЗЫВЫ О НАС</a></button>-->
+<!--    </div>-->
+<!--    <div class="knopka">-->
+<!--        <button class="glow-on-hover" type="button">-->
+
+<!--            <a href="{% url 'category_products' %}">-->
+<!--                КАТАЛОГ</a></button>-->
+<!--    </div>-->
+<!--    <br><br><br>-->
+<!--    <h5 class='italich5'> По всем вопросам обращайтесь по телефону: +7 977 510 52 81 </h5>-->
+<!--    <br><br><br>-->
+
+<!--</div>-->
+
+
+</div>
+{% endblock %}
