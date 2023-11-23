@@ -1,4 +1,5 @@
-{% extends 'main/layout.html' %}
+{% extends 'main/layout2.html' %}
+
 {% load static %}
 
 {% block title %}
@@ -6,22 +7,45 @@
 {% endblock %}
 {% block content %}
 <style>
-    .forma {
-       display:table;
-       width: 100%;
-       margin: auto;
-    }
+
 </style>
-<section>
-    <div class="container">
-        <div class="forma">
-<h3>Заполните форму, чтобы оформить заказ</h3>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Оформить заказ">
-</form>
-    </div>
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between align-items-center">
+                    <div class="col-lg-6">
+						<div class="row my-5">
+<!--							<div class="col-6 col-md-6">-->
+								<div class="form-group">
+                                <h3>Заполните форму, чтобы оформить заказ</h3>
+                                    <div class="forma">
+                                    <form action="" method="post">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+<!--                                        <input type="submit" value="Отправить заказ">-->
+                                        <button type="submit"  class="btn btn-warning">Отправить заказ</button>
+
+<!--                                        <button type="button" class="btn btn-warning"-->
+<!--                                        onclick="window.location.href = '{% url 'created' %}';">Отправить заказ</button>-->
+
+
+
+                                    </form>
+                                        <br>
+                                        <br>
+                                        <br>
+                                    </div>
+<!--                                </div>-->
+                            </div>
+                        </div>
+					</div>
+
+
+					<div class="col-lg-5">
+						<div class="img-wrap">
+							<img src="/images/images/IMG_3547_06PmRaG.jpg" alt="Image" class="img-fluid">
+						</div>
+					</div>
+                </div>
         </div>
-</section>
+</div>
 {% endblock %}
