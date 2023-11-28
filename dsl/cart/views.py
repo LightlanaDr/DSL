@@ -1,4 +1,5 @@
 from _decimal import Decimal
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from catalog.models import Product
@@ -20,6 +21,20 @@ def cart_add(request, product_id):
                  update_quantity=cd['update'])
         messages.success(request, 'Товар добавлен')
     return redirect('category_products')
+
+
+def cart_add_prod(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    form = CartAddProductForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(product=product,
+                 quantity=cd['quantity'],
+                 update_quantity=cd['update'])
+        messages.success(request, 'Товар добавлен')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
 
 @require_POST
 def cart_add_update(request, product_id):

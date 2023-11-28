@@ -1,0 +1,151 @@
+{% extends 'main/layout2.html' %}
+
+{% block title %}
+DSL Wood
+{% endblock %}
+
+
+{% block content %}
+<style>
+    @font-family:'Ubuntu Condensed', sans-serif;
+
+	// Cards Carousel
+// ----------------------------------------------
+
+.icon-cards {
+  position: relative;
+	width: 60vw;
+	height: 40vw;
+  max-width: 380px;
+  max-height: 250px;
+  margin: 0;
+  color: white;
+	perspective: 1000px;
+  transform-origin: center;
+
+	// This is the element that rotates with the animation
+
+	&__content {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+    transform-origin: center;
+		transform-style: preserve-3d;
+		transform: translateZ(-30vw) rotateY(0);
+		animation: carousel 10s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
+
+    &.step-animation {
+      animation: carousel 8s infinite steps(1) forwards;
+    }
+	}
+
+	// Individual cards
+
+	&__item {
+		position: absolute;
+		top: 0;
+		left: 0;
+    right: 0;
+    bottom: 0;
+		width: 60vw;
+		height: 40vw;
+    max-width: 380px;
+    max-height: 250px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.1);
+		border-radius: 6px;
+    transform-origin: center;
+
+		&:nth-child(1) {
+			background: #FDD94F;
+			transform: rotateY(0) translateZ(35vw);
+		}
+
+		&:nth-child(2) {
+			background: #F87949;
+			transform: rotateY(120deg) translateZ(35vw);
+		}
+
+		&:nth-child(3) {
+			background: #FBAB48;
+			transform: rotateY(240deg) translateZ(35vw);
+		}
+	}
+}
+
+// Carousel animation
+
+@keyframes carousel {
+	0%,  17.5%  { transform: translateZ(-35vw) rotateY(0); }
+	27.5%, 45%  { transform: translateZ(-35vw) rotateY(-120deg); }
+	55%, 72.5%  { transform: translateZ(-35vw) rotateY(-240deg); }
+	82.5%, 100% { transform: translateZ(-35vw) rotateY(-360deg); }
+}
+
+
+// Demo only
+// ----------------------------------------------
+
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+// Checkbox
+
+.checkbox {
+  position: relative;
+  margin-top: 2rem;
+  font-size: .9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #F47956;
+  transition: color .3s ease;
+  user-select: none;
+
+  &:hover {
+    color: #F7A95A;
+  }
+
+  // Checkbox
+
+</style>
+<div class="we-help-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-7 mb-5 mb-lg-0">
+						<figure class="icon-cards mt-3">
+						  <div class="icon-cards__content">
+							<div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1"><img   src="{{image1.image.url}}}" alt="{{image.name}}" tabindex="0"></span></div>
+							<div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">😊</span></div>
+							<div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">😀</span></div>
+						  </div>
+						</figure>
+					</div>
+					<div class="col-lg-5 ps-lg-5">
+						<h2 class="section-title mb-4">Мы делаем подарки, которые прослужат вам и вашим любимым долгие годы</h2>
+						<p>Удобные, красивые, индивидуальные.</p>
+
+						<ul class="list-unstyled custom-list my-4">
+							<li>Вечные деревянные обложки</li>
+							<li>Теплые кожанные переплеты</li>
+							<li>Удобные кольцевые механизмы</li>
+							<li>Красивые подарочныен короба</li>
+							<li>Безопасные краски и лаки</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+<script>
+	function classToggle() {
+  var el = document.querySelector('.icon-cards__content');
+  el.classList.toggle('step-animation');
+}
+
+document.querySelector('#toggle-animation').addEventListener('click', classToggle);
+</script>
+{% endblock %}

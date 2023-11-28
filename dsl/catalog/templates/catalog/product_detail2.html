@@ -82,7 +82,7 @@
 </style>
 
 <div class="untree_co-section product-section before-footer-section">
-
+<div class="container">
 
     {% if messages %}
             <div class="alert alert-success" role="alert" style="width: 200px;
@@ -99,21 +99,21 @@
     {% endif %}
 
 
-    <div class="container">
+<!--    <div class="container">-->
         <div class="vertical-menu">
             {% for category in categories %}
             <a href="{% url 'cat_slug_products' category_slug=category.id %}"> {{category.name_cat}}</a>
             {% endfor %}
         </div>
         <br>
-    </div>
-    <div class="container">
+<!--    </div>-->
+<!--    <div class="container">-->
 
 
         <div class="row">
             {% for product in products %}
             <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="#">
+                <a class="product-item" href="{% url 'get_slug_product' product_id=product.id %}">
                     <img src="{{product.image.url}}" alt="{{image.name}}" tabindex="0"
                          class="img-fluid product-thumbnail">
                     <h3 class="product-title">{{product.title}}</h3>
@@ -138,9 +138,10 @@
             </div>
             {% endfor %}
         </div>
+</div>
     </div>
 
-</div>
+<!--</div>-->
 
 
 {% endblock %}
