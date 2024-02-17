@@ -19,12 +19,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!utbc(ew#(zte^_6d6kwpb=9x))=o1t2+)6e26okg*2j1zn+b4'
+# SECRET_KEY = 'django-insecure-!utbc(ew#(zte^_6d6kwpb=9x))=o1t2+)6e26okg*2j1zn+b4'
+# SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = '206d3d3f077d5a3ee4cd7b7d2852ddeff204f8dc022392846d30b26d1ea78d9f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+ALLOWED_HOSTS = [
+    'dslwood.ru', 'localhost', '127.0.0.1', '31.31.196.3'
+]
 
 # Application definition
 
@@ -39,7 +46,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,7 +67,8 @@ ROOT_URLCONF = 'dsl.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 'DIRS': [],
+        'DIRS': [ BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +89,17 @@ WSGI_APPLICATION = 'dsl.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': 'dslwood.ru',
         'NAME': BASE_DIR / 'db.sqlite3',
+        # 'USER': 'u2365000',
+        # 'USER': 'root',
+        # 'PASSWORD': 'Razor1911',
+        # 'HOST': 'localhost',
+        # 'OPTIONS': {
+        #     'init_command': "SET NAMES 'utf8mb4';SET sql_mode = 'STRICT_TRANS_TABLES'",
+        #     'charset': 'utf8mb4',
+        # }
+
     }
 }
 
@@ -104,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -114,11 +136,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT='static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATIC_ROOT = BASE_DIR / 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -129,4 +154,3 @@ MEDIA_URL = '/images/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CART_SESSION_ID = 'cart'
-
