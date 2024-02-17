@@ -1,0 +1,85 @@
+{% extends 'main/layout2.html' %}
+
+{% block title %}
+DSL Wood
+{% endblock %}
+
+
+{% block content %}
+<style>
+    @font-family:'Ubuntu Condensed', sans-serif;
+
+section {
+margin:20px;
+
+}
+.delivery-list .delivery-item img {
+padding: 2rem 0;
+width: 100%;
+border: 1px solid #B1B1B1;
+border-radius: 2rem;
+}
+</style>
+
+		<!-- Start Why Choose Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-lg-6">
+						<h2 class="section-title">Доставка и оплата</h2>
+						<p>Доставка по Центральным регионам России осуществляется бесплатно при заказе более 15 000 рублей.</p>
+                        <p>Доставка в другие регионы - по согласованию с менеджером.</p>
+						<div class="row my-5">
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="/static/main/images/truck.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Доставка транспортными компаниями</h3>
+									<p>Наша компания заботится об удобстве покупателей, мы сотрудничаем
+                            со всеми ведущими транспортными компаниями, что позволяет отделу логистики
+                            оптимизировать скорость и качество доставки в любой регион в зависимости от
+                            объема и веса.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="/static/main/images/bag.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Условия оплаты</h3>
+									<p>Мы отправляем заказы на условиях 100% предоплаты. В зависимости от суммы
+                                    заказа может быть сделана скидка на оптовый объём. Все условия Вы сможете
+            согласовать непосредственно с нашим менеджером, отвечающим за Ваш заказ.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="/static/main/images/support.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Мы всегда на связи</h3>
+                                    <p> Мы работаем без выходных с 9 до 18 ч.
+                                        Информацию по заказу можно узнать у вашего менеджера.
+										Все заказы Вы легко сможете отслеживать по трек-номерам транспортных компаний.</p>
+									<br>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div class="img-wrap">
+							<img src="/images/images/IMG_3547_06PmRaG.jpg" alt="Image" class="img-fluid">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- End Why Choose Us Section -->
+
+{% endblock %}
