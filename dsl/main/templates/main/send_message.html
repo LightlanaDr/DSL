@@ -1,0 +1,51 @@
+{% extends 'main/layout2.html' %}
+
+{% load static %}
+
+{% block title %}
+Оформление заказа
+{% endblock %}
+{% block content %}
+<style>
+
+</style>
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between align-items-center">
+                    <div class="col-lg-6">
+						<div class="row my-5">
+<!--							<div class="col-6 col-md-6">-->
+								<div class="form-group">
+                                <h3>Заполните форму, чтобы отправить нам сообщение</h3>
+                                    <div class="forma">
+                                    <form action="" method="post">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+<!--                                        <input type="submit" value="Отправить заказ">-->
+                                        <button type="submit"  class="btn btn-warning">Отправить</button>
+
+<!--                                        <button type="button" class="btn btn-warning"-->
+<!--                                        onclick="window.location.href = '{% url 'created' %}';">Отправить заказ</button>-->
+
+
+
+                                    </form>
+                                        <br>
+                                        <br>
+                                        <br>
+                                    </div>
+<!--                                </div>-->
+                            </div>
+                        </div>
+					</div>
+
+
+					<div class="col-lg-5">
+						<div class="img-wrap">
+							<img src="/images/images/IMG_3547_06PmRaG.jpg" alt="Image" class="img-fluid">
+						</div>
+					</div>
+                </div>
+        </div>
+</div>
+{% endblock %}
